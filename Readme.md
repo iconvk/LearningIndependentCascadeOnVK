@@ -19,8 +19,7 @@ pip3 install tqdm nltk sklearn scipy pymongo pandas networkx pickle
 ```
 
 nltk should have stopwords downloaded:
-```
-# python
+```python
 import nltk
 nltk.download("stopwords")
 ```
@@ -59,10 +58,10 @@ The script checks if all existing nodes are complete, and if the database is emp
 ## Using terminal
 
 If you use terminal, running the following scripts should start downloading the data:
-- `src/properties.py`
-- `src/friends.py`
-- `src/wall.py`
-- `src/posts.py`
+- `vk_crawl/src/properties.py`
+- `vk_crawl/src/friends.py`
+- `vk_crawl/src/wall.py`
+- `vk_crawl/src/posts.py`
 These files start to continuously download information for incomplete users and groups. It is not completely asynchronous, some have dependencies. For example, wall posts will get data only for users where other information is already available. This is done in order to save the quota for querying. Many nodes are deleted or blocked, and getting that information is much cheaper if to get their properties first.
 
 Run `src/priorities.py` in order to facilitate querying nodes with higher degrees.
@@ -99,7 +98,7 @@ The code for solving the Influence Maximization problem can be found here: <http
 ## Node Immunization
 
 Solvers usage in python:
-```
+```python
 import networkx as nx
 from NetShieldSolver import *
 from DomSolver import *
